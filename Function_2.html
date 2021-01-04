@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// //內建函式
+// //alert("hallo world");
+// //設計階段
+// function add(n1,n2/*參數名稱*/){
+//     //函式本體
+//     alert(n1+n2);
+//     return n1+n2;
+// }
+// //呼叫函數
+// // add(3,4/*傳入函式的參數資料*/);
+// // add(10,12);
+// var result = add(3,4)*add(10,10);
+// alert(result);
+
+//整合範例  1加到50
+function getSum(max){
+    var sum=0;
+    var n=1;
+    while(n<=max){
+        sum+=n;
+        n++;
+    }
+    alert(sum);
+    return sum;
+}
+var result=getSum(10)*getSum(20);
+alert(result);
+
+
+</script>
+</body>
+</html>

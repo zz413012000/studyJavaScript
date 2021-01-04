@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //  // 函式的變形，函式 是一種資料
+    // //  function add(n1,n2){
+    // //      alert(n1+n2);
+    // //  }
+    // var add=function(n1,n2){
+    //     alert(n1+n2);
+    // }
+    // add(20,10);
+    // var test=add;
+    // test(20,20);
+    
+    
+    // 函式創造新的名稱空間
+    var x=3;  //全域空間，全域變數
+    function test(){
+        var y=5;  //區域空間，區域變數
+        alert(x+y);
+    }  
+    // test();
+    alert(x);
+    // 外部的程式碼，不能使用內部的變數
+    </script>
+</body>
+</html>
