@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        alert(window.screen.width+"x"+window.screen.height);
+       function change(){
+        // document.body.innerHTML="Hello World";
+        var spanObj=document.getElementById("emotion");
+        spanObj.style.color="red";
+        // spanObj.innerHTML="bad";
+        // spanObj.style.fontWeight = "900";
+        // document.getElementById("emotion").style.fontWeight="900";
+       }
+
+    </script>
+    <style>
+        button{
+            width: 70px;
+            height: 20px;
+            
+        }
+
+    </style>
+</head>
+<div>
+    Today is a <span id="emotion">good</span> day. Let's go to movie.
+</div>
+<body>
+   <button onclick="change();">change</button>  
+</body>
+</html>

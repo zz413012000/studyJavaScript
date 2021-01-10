@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+// if(false){
+//     alert("hello world");
+// }
+// else if(false){
+//     alert("hello javascript");
+// }
+// else if(true){
+//     alert("hello css");
+// }
+var n1=prompt("請輸入想加減乘除的數字","1");
+var n2=prompt("請輸入想加減乘除的第二個數字","2");
+n1=Number(n1);  //將輸入的字轉成數字
+n2=Number(n2);  //將輸入的字轉成數字
+var result
+var Op=prompt("請輸入 + 或 - 或 / 或 *","");
+if(Op=="+"){
+    result=n1+n2;
+}else 
+if(Op=="-"){
+    result=n1-n2;
+}else
+if(Op=="*"){
+    result=n1*n2;
+}else
+if(Op=="/"){
+    result=n1/n2;
+}else{
+    result="不合法的運算符號";
+}
+alert(result);
+
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>

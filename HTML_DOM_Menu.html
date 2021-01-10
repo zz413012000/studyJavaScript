@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script>
+function toggleMenu(){
+    var menu=document.getElementById("menu");
+    menu.classList.toggle("hide");
+
+
+    /*
+    if(menu.style.display=="none"){ //目前是藏起來的狀態
+        menu.style.display="block";
+    }
+    else{ //目前是秀出來的狀態
+        menu.style.display="none";
+    }*/
+
+
+}  
+</script>
+<style>
+.hide{
+    display: none;
+}
+</style>
+</head>
+<body>
+<div onclick="toggleMenu();">選單開合</div>
+<ul id="menu" class="hide">
+    <li>項目 1-1</li>
+    <li>項目 1-2</li>
+    <li>項目 1-3</li>
+</ul>
+</body>
+</html>

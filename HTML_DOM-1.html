@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script>
+function change(){
+    // document.body.innerHTML="hello world";
+   var spanObj=document.getElementById("emotion");
+   spanObj.style.fontWeight="900";
+}
+</script>
+</head>
+<body>
+    <div>Today is <span id="emotion">good</span> day.</div>
+    <button onclick="change();">change</button>
+</body>
+</html>
