@@ -4,8 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+<script>
+
+function clickMenu(){
+var menu=document.getElementById("box");
+
+if(menu.style.display=="none"){
+    menu.style.display="block";
+}else{
+    menu.style.display="none";
+}
+}
+function toggleMenu(number){
+var menu=document.getElementById("ul-"+number);
+menu.classList.toggle("hide");
+
+}
+</script>
+<style>
+.hide{
+display:none;
+}
+</style>
 </head>
 <body>
-    
+<button onclick="clickMenu();">change</button>
+<div id="box">
+<div onclick="toggleMenu(1);">標題1</div>
+<ul id="ul-1">
+    <li>項目-1</li>
+    <li>項目-2</li>
+    <li>項目-3</li>
+</ul>
+<div onclick="toggleMenu(2);">標題2</div>
+<ul id="ul-2">    
+    <li>項目-1</li>
+    <li>項目-2</li>
+    <li>項目-3</li>
+</ul>
+<div onclick="toggleMenu(3);">標題3</div>
+<ul id="ul-3">    
+    <li>項目-1</li>
+    <li>項目-2</li>
+    <li>項目-3</li>
+</ul>
+</div>
 </body>
 </html>

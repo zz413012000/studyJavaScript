@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script>
+// function over(element){
+// element.style.color="red";
+// }
+// function out(element){
+// element.style.color="black";
+// }
+//用JS，動態地註冊事件處理器
+function init(){
+    var btn=document.getElementById("btn");
+    // btn.onclick=function(){
+    //     alert("Clicked");
+    // }
+    var handler=function(){
+        alert("快樂雞仔");
+    };
+    btn.addEventListener("click",handler);
+
+    var word=document.getElementById("word");
+    var over=function(){
+        word.style.color="#FFC44D";
+        word.style.borderColor="#FFC44D";
+    }
+    var out=function(){
+        word.style.color="#4BFC3D";
+        word.style.borderColor="#4BFC3D";
+    }
+    word.addEventListener("mouseover",over);
+    word.addEventListener("mouseout",out);
+}
+</script>
+<style>
+div{
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border: 2px solid black;
+    text-align: center;
+    line-height: 100px;
+}
+</style>
+</head>
+<body onload="init();"> 
+<!-- load事件 -->
+
+<button id="btn">Click</button>
+<div id="word">letter</div>
+
+
+<!-- <button onclick="alert('Hello')">Click</button><br/>
+<span onmouseover="this.style.color='red';"
+onmouseout="this.style.color='black';">Test</span><br/>
+<span onmouseover="over(this);" onmouseout="out(this)";>Test2</span> -->
+
+
+</body>
+</html>
