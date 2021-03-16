@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script>
+/*
+    var point=new Object();
+    point.x=3;
+    point.y=4;
+    point.get=function(){
+        alert(this.x+","+this.y);
+    };
+*/
+var point={
+    "x":3,
+    "y":4,
+    "get":function(){
+        alert(this.x+","+this.y);
+    }
+};
+
+//point.get();
+/*
+    物件結構與 JSON 格式字串轉換，使用內建 JSON 物件中的方法。
+        使用 JSON.sringify( 物件 );將物件轉換成 JSON 格式的字串，但會忽略函式的部分
+        使用 JSON.parse ( JSON 格式字串);將字串轉換成物件結構
+*/
+var jsonStr=JSON.stringify(point);
+console.log(jsonStr);
+var plainObj=JSON.parse(jsonStr);
+console.log(plainObj);
+alert(plainObj.x);
+</script>
+</head>
+<body>
+    
+</body>
+</html>

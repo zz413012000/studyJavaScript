@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script>
+/*
+    var point = new Object();
+    point.x=3;
+    point.y=4;
+    point.get=function(){
+        alert(this.x+","+this.y);
+    };
+*/
+var point={
+    "x":3,
+    "y":4,
+    "get":function(){
+        alert(this.x+","+this.y);
+    }
+};
+console.log(point);
+var jsonStr=JSON.stringify(point);
+console.log(jsonStr);
+var point=JSON.parse(jsonStr);
+console.log(point);
+</script>
+</head>
+<body>
+    
+</body>
+</html>

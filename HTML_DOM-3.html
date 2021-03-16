@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script>
+function init(){
+    var adj=document.getElementById("adj");
+    var over=function(){
+        adj.style.color="#AAA";
+    };
+    var out=function(){
+        adj.style.color="#000"
+    };
+    var innerWord=function(){
+        if(adj.innerHTML==="good"){
+            adj.innerHTML="bad";
+        }else{
+            adj.innerHTML="good";
+        }
+    };
+    adj.addEventListener("mouseover",over);
+    adj.addEventListener("mouseout",out);
+    var btn=document.getElementById("btn")
+    btn.addEventListener("click",innerWord);
+
+    
+}
+</script>
+<style>
+
+</style>
+</head>
+<body onload="init();">
+<div>Today is <span id="adj">good</span> day.</div>
+<button id="btn">click</button>
+</body>
+</html>

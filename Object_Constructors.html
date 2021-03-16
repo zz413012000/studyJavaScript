@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script>
+// var player=new Object();
+// player.name="Bob";
+// player.hp=100;
+// player.fight=function(){
+//     this.hp-=2;
+// }
+// player.rest=function(){
+//     this.hp++;
+// }
+// player.report=function(){
+//     alert(this.name+":"+this.hp);
+// }
+// player.fight();
+// player.report();
+
+// var player={
+// "name":"Bob",
+// "hp":100,
+// "fight":function(){
+//     this.hp-=2
+// },
+// "rest":function(){
+//     this.hp++;
+// },
+// "report":function(){
+//     alert(this.name+":"+this.hp);
+// }
+// };
+// player.fight();
+// player.report();
+function Player(name,hp){
+    this.name=name;
+    this.hp=hp;
+    this.fight=function(){
+        this.hp-=2;
+    };
+    this.rest=function(){
+        this.hp++;
+    };
+    this.report=function(){
+        alert(this.name+":"+this.hp);
+    };
+}
+var player=new Player("john",100);
+player.fight();
+player.report();
+var player2=new Player("Bob",80);
+player2.rest();
+player2.report();
+</script>
+</head>
+<body>
+    
+</body>
+</html>

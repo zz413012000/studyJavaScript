@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script>
+// var msg="global";
+// function outer(){
+//     var msg ="local";
+//     function inner(){
+//     return msg;
+//     }
+//     return inner;
+// }
+// var innerFunc = outer();
+// var result = innerFunc();
+// console.log(result);
+// function counter(){
+//     var count = 0;
+//     function innerCounter(){
+//         return ++count;
+//     }
+//     return innerCounter;
+// }
+// var countFunc =counter();
+// console.log(countFunc());
+// console.log(countFunc());
+// console.log(countFunc());
+/*
+function counter(){
+    var count = 0;
+    return function(){
+        return ++count;
+    }
+}
+var countFunc =counter()
+console.log(countFunc());
+*/
+
+var counter=()=>{
+    var count=0;
+    return ()=>++count;
+}
+var countFunc=counter();
+var countFunc2=counter();
+console.log(countFunc());
+console.log(countFunc());
+console.log(countFunc());
+console.log(countFunc2());
+console.log(countFunc2());
+
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>

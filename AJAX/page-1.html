@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script>
+function getData(a){
+    var req=new XMLHttpRequest();
+    req.open("get","http://127.0.0.1:5500/AJAX/"+a);
+    req.onload=function(){
+        var content=document.getElementById("content");
+        content.innerHTML=this.responseText;
+    }
+    req.send();
+
+}
+</script>
+</head>
+<body>
+<span onclick="getData('popular.html');">熱門</span>
+<span onclick="getData('latest.html')">最新</span>
+<hr/>
+<div id="content"></div>
+</body>
+</html>

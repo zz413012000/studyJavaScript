@@ -2,25 +2,26 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
 <script>
-    var timer;
 function init(){
-    timer=document.getElementById("timer");
+    var timer=document.getElementById("timer");
     window.setTimeout(countdown,1000);
+
 }
 function countdown(){
-    timer.innerHTML=timer.innerHTML-1;
+    timer.innerHTML-=1;
     if(timer.innerHTML>0){
         window.setTimeout(countdown,1000);
     }else{
-        document.location="http://www.google.com/";
+        document.location="http://www.google.com";
     }
 }
 </script>
 </head>
 <body onload="init();">
-    <span id="timer">3</span>
+<span id="timer">3</span>
 </body>
 </html>

@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script>
+var coin1 = { value: 10 };
+
+function changeValue(obj) {
+  // obj = { value: 123 };
+  obj.value=123;
+  console.log("第一次",coin1)
+}
+
+changeValue(coin1);
+console.log("第二次",coin1);   // obj = { value: 123 };
+//重新賦值 此時 coin1 仍是 { value: 10 }
+
+
+console.log("第二次",coin1);   // 僅更新 obj.value，並未重新賦值
+// 此時 coin1 則會變成 { value: 123 }
+</script>
+</head>
+<body>
+    
+</body>
+</html>

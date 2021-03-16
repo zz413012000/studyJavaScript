@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script>
+// var getGender=function(){
+//     return this.gender;
+// }
+// var people1={
+//     gender:"male",
+//     getGender:getGender
+// }
+// var people2={
+//     gender:"female",
+//     getGender:getGender
+// }
+// console.log( people1.getGender() );
+// console.log( people2.getGender() );
+var foo=function(){
+    this.count++;
+}
+
+foo.count=0;
+
+for(var i=0;i<5;i++){
+    foo();
+}
+console.log("foo.count :"+foo.count);
+console.log("window.count :"+window.count);
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>
