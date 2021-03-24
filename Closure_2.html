@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script>
+function init(){
+    // 做一個計數器
+function counter2(){
+    var count=0;
+    return ()=>"按了"+(++count)+"次";
+}
+
+// 各自調用計數器
+var countfunc1=counter2();
+var countfunc2=counter2();
+var b1=function(){
+    let m="第1顆按鈕"
+    console.log(m+countfunc1());
+}
+var b2=function(){
+    let m="第2顆按鈕"
+    console.log(m+countfunc2());
+}
+var b3=function(){
+    console.log(" ");
+}
+document.getElementById("b1").addEventListener("click",b1);
+document.getElementById("b2").addEventListener("click",b2);
+document.getElementById("b3").addEventListener("click",b3);
+}
+</script>
+</head>
+<body onload="init();">
+<!-- <button id="b1" onclick="b1('第1顆按鈕 ');">第一顆按鈕</button> -->
+<!-- <button id="b2" onclick="b2('第2顆按鈕 ');">第二顆按鈕</button> -->
+<!-- <button id="b3" onclick="b3();">空格</button> -->
+<button id="b1">第一顆按鈕</button>
+<button id="b2">第二顆按鈕</button>
+<button id="b3">空格</button>
+</body>
+</html>

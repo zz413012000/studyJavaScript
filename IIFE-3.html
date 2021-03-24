@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script>
+    //計數器
+function counter(){
+    var count=0;
+    return ()=>"按了"+(++count)+"次";
+}
+    //計數器分別計算
+var count1=counter();
+var count2=counter();
+
+function test(y,count){    
+    console.log("第"+y+"顆按鈕"+count);
+    for(var i=0;i<5;i++){
+        (function (x){
+            window.setTimeout(function(){
+                let word="第"+y+"顆按鈕"+(x+1)+"次呼叫:";
+                console.log(word);
+            },1000*i);        
+        })(i);        
+    }
+    console.log('');
+}
+
+// 一秒印一個數字 印五次
+
+</script>
+</head>
+<body>
+    <button onclick="test('1',count1());">test</button>
+    <button onclick="test('2',count2());">test</button>
+</body>
+</html>

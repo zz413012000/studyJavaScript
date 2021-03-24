@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script>
+// var msg="global";
+// function outer(){
+//     var msg="local";
+    
+//     return function inner(){
+//         return msg
+//     }    
+// }
+// var innerfunc=outer();
+// console.log(innerfunc());
+// function counter(){
+//     var count = 0;
+//     return function(){
+//         return ++count;
+//     }
+// }
+// var countFunc =counter()
+// console.log("第一次",countFunc());
+
+
+
+
+
+// 做一個計數器
+function counter2(){
+    var count=0;
+    return ()=>"按了"+(++count)+"次";
+}
+
+// 各自調用計數器
+var countfunc1=counter2();
+var countfunc2=counter2();
+function b1(m){
+    console.log(m+countfunc1());
+}
+function b2(m){
+    console.log(m+countfunc2());
+}
+function b3(m){
+    console.log(" ");
+}
+
+</script>
+</head>
+<body>
+<button onclick="b1('第1顆按鈕 ');">第一顆按鈕</button>
+<button onclick="b2('第2顆按鈕 ');">第二顆按鈕</button>
+<button onclick="b3();">空格</button>
+</body>
+</html>
