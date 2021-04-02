@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+    .option{
+        background-color: #ddd;
+        display: inline-block;
+        margin: 10px;
+        width: 50px;
+        height: 50px;
+    }
+    .current{
+        background-color: #aaa;
+    }
+</style>
+</head>
+<body>
+<h3>Event Delegation</h3>
+<div class="switcher">
+    <div class="option"></div>
+    <div class="option"></div>
+    <div class="option"></div>
+</div>
+<script>
+let switcher=document.querySelector(".switcher");
+let currentOption=null;
+switcher.addEventListener("click",function(e){
+    if(currentOption!==null){
+        currentOption.classList.remove("current");
+    }
+    if(e.target.classList.contains("option")){ //確定有點到
+        currentOption=e.target;
+        currentOption.classList.add("current");
+    }else{
+        currentOption=null;
+    }
+    
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h2>AJAX</h2>
+<div id="list"></div>
+<script>
+let list=document.getElementById("list");
+list.innerHTML="...Loading...";
+// use fetch API
+let src="https://zz413012000.github.io/test/README.md";
+fetch(src).then(function(res){
+    return res.text(); //用字串方式接回資料
+}).then(function(result){
+    console.log("最終的資料",result);
+});
+</script>
+</body>
+</html>

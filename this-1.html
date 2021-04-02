@@ -5,16 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
 <script>
-var arr=["A","B","C"];
-// for(let i=0;i<arr.length;i++){
-//     let timer=i*1000
-//     setTimeout(function(){
-//         console.log(arr[i]+":"+timer);        
-//     },timer)
-// }
-arr.forEach(function(item){
-    console.log(item);
-});
+// 測試在函式中的 this
+var foo=function(){
+    this.count++;
+}
+foo.count=0;
+for(i=0;i<5;i++){
+    foo();
+}
+console.log(foo.count);
+console.log(window.count);
 </script>
 </head>
 <body>
