@@ -18,9 +18,10 @@ var point={
     "x":3,
     "y":4,
     "get":function(){
-        alert(this.x+","+this.y);
+        console.log(this.x+" , "+this.y);
     }
 };
+point.get();
 console.log(point);
 var jsonStr=JSON.stringify(point);
 console.log(jsonStr);

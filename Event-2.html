@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 使用 on-event 處理器 將事件註冊在 HTML 上
+        // function over(e){
+        //     e.style.color="red";
+        // }
+        // function out(e){
+        //     e.style.color="black";
+        // }
+        function init(){
+        // 在 body 註冊 onload 事件，因為瀏覽器從上面往下讀，所以它還沒讀完HTML DOM 的結構所以無法獲取裡面的 ID
+        // 使用 addEventListener 將事件註冊在 script 標籤裡
+        var red=function(){
+            this.style.color="red";
+        }
+        var black=function(){
+            this.style.color="black";
+        }
+        function get(n){
+            return document.getElementById(n);
+        }
+        var L1=get("L1");
+        var L2=get("L2");
+       
+        L1.addEventListener("mouseover",red);
+        L1.addEventListener("mouseout",black);
+        L2.addEventListener("mouseover",red);
+        L2.addEventListener("mouseout",black);
+        // var out=addEventListener("mouseout",black);
+       
+        // window.addEventListener("onload",()=>{
+        //     L1
+        // });
+        }
+    </script>
+</head>
+<body onload="init();">
+    <!-- <div onmouseover="over(this);" onmouseout="out(this);">Test</div> -->
+    <!-- <div onmouseover="over(this);" onmouseout="out(this);">Line 2</div> -->
+    <div id="L1">Line 1</div>
+    <div id="L2">LIne 2</div>
+</body>
+</html>

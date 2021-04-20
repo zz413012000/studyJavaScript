@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var cvs,ctx;
+        window.onload=function(){
+            cvs=document.getElementById("cvs");
+            ctx=cvs.getContext("2d");
+            // Load Image
+            let img=new Image();
+            img.src="canvasImage.jpg";
+            img.onload=function(){
+                ctx.drawImage(this,0,0,338,600);
+            };            
+        }
+        function invertColor(){
+            let pixels=ctx.getImageData(0,0,cvs.width,cvs.height); // ImageData 物件
+            let data=pixels.data; // 一個像素佔據 4 個 bytes。 r,g,b,a (範圍 0~255)
+            for(let i=0;i<data.length;i+=4){
+                data[i]=255-data[i]; //red
+                data[i+1]=255-data[i+1]; //green
+                data[i+2]=255-data[i+2]; //blue
+            }
+            ctx.putImageData(pixels,0,0); //修改後放回去
+        }
+        function print(){
+            let pixels=ctx.getImageData(0,0,cvs.width,cvs.height);
+            console.log(pixels.data);
+        }
+    </script>
+</head>
+<body>
+    <div><button onclick="invertColor();">顏色的反轉</button>
+    <button onclick="print();">印出 .getImageData().data</button>
+    </div>
+    <canvas id="cvs" width="800px" height="600px" style="border:1px solid #000"></canvas>
+</body>
+</html>

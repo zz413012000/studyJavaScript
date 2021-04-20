@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .option{
+        margin: 10px;
+        width: 100px;
+        height: 100px;
+        background: #ddd;
+        display:inline-block;
+    }
+    .current{
+        background-color: #aaa;
+    }
+</style>
+
+<body>
+    <div class="out">
+        <div class="option"></div>
+        <div class="option"></div>
+        <div class="option"></div>
+    </div>
+<script>
+    //建立三個方格 使用事件委任 將他們變灰色
+    var out=document.querySelector(".out");
+    var currentOption=null;
+    out.addEventListener("click",(e)=>{
+        if(currentOption!==null){
+            currentOption.classList.remove("current");
+        }
+        if(e.target.classList.contains('option')){
+            currentOption=e.target;
+            currentOption.classList.add("current");
+        }
+        else{
+            currentOption=null;
+        }
+            
+        
+    });
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script>
+// 挑出整數的部分
+var a1=[0, 'one', 2, 3, 'four', 5, 'six', 'seven', 8, 9, 10];
+var fliter=function(arr){
+    var result=[];
+    for(e of arr){
+        console.log(e,typeof e);
+        
+        if(typeof e === "number"){
+            result.push(e);
+        }
+    }
+    return result;
+}
+console.log(fliter(a1));
+</script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            let cvs=document.getElementById("cvs");
+            let ctx=cvs.getContext("2d"); // Canvas Context Object
+            ctx.fillStyle="red";
+            ctx.globalAlpha=0.5;
+            ctx.fillRect(50,50,100,100);
+            // stroke 描邊
+            ctx.globalAlpha=1;
+            ctx.strokeStyle="blue";
+            ctx.strokeRect(200,200,50,50);
+            // Path 路徑
+            ctx.beginPath();
+            ctx.moveTo(200,100); //移動當前所在的位置
+            ctx.lineTo(300,300);
+            ctx.closePath();
+            ctx.stroke();
+            // 利用路徑畫出多邊形
+            ctx.beginPath();
+            ctx.moveTo(300,300);
+            ctx.lineTo(350,386);
+            ctx.lineTo(400,300);
+            ctx.closePath();
+            ctx.fill();
+            
+        }
+    </script>
+</head>
+<body>
+    <canvas id="cvs" width="800px" height="600px" style="border:1px solid #000"></canvas>
+</body>
+</html>
