@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 測試全域執行環境 函式執行環境 click 事件的執行順序
+        function waitThreeSeconds(){
+            var ms=3000+ new Date().getTime();
+            while(new Date<ms){}
+            console.log("finished function");
+        }
+        function clickHandler(){
+            console.log("click event!")
+        }
+        // 註冊事件
+        document.addEventListener("click",clickHandler);
+        waitThreeSeconds();
+        console.log("finished excution");
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

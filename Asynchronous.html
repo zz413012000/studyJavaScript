@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 測試 全域執行環境 函式執行環境 點擊事件誰會先執行
+        function waitThreeSeconds(){
+            var ms=3000+new Date().getTime();
+            while(new Date< ms){}
+            console.log("finished function");
+            
+        }
+        function clickHandler(){
+            console.log("click event!");
+        }
+
+        document.addEventListener("click",clickHandler);
+
+        waitThreeSeconds();
+        console.log("finished excution");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

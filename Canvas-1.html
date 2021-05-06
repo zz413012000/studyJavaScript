@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var cvs,ctx;
+        window.addEventListener("load",function(){
+            cvs=document.getElementById("cvs");
+            ctx=cvs.getContext("2d");
+            // 填充
+            ctx.fillStyle="red";
+            ctx.globalAlpha=".4";
+            ctx.fillRect(0,0,50,50);
+            // 描邊
+            ctx.strokeStyle="green";
+            ctx.globalAlpha="1";
+            ctx.strokeRect(50,50,100,100);
+            // 路徑
+            ctx.beginPath();
+            ctx.moveTo(100,100);
+            ctx.lineTo(150,150);
+            ctx.closePath();
+            ctx.stroke();
+            // 利用路徑畫多邊形
+            ctx.strokeStyle="#000";
+            ctx.globalAlpha="1";
+            ctx.beginPath();
+            ctx.moveTo(150,150);
+            ctx.lineTo(250,150);
+            ctx.lineTo(200,250);
+            ctx.closePath();
+            ctx.stroke();
+            ctx.fill();
+        });
+    </script>
+</head>
+<body>
+    <canvas id="cvs" width="800px" height="600px" style="border:1px solid #000"></canvas>
+</body>
+</html>

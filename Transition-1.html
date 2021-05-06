@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            height: 100px;width: 100px;background-color:red;opacity: .5;
+            margin-left: auto;margin-right: auto; display: block;
+            transition: all 1s;
+        }
+    </style>
+    <script>
+        window.addEventListener("load",()=>{
+            var box=document.getElementById("box");           
+            box.addEventListener("mouseover",function(){                
+                this.style.opacity=1;
+                this.style.marginTop="50px";
+            });
+            box.addEventListener("mouseout",function(){
+                this.style.opacity=.5;
+                this.style.marginTop="0px";
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <div class="box" id="box"></div>
+</body>
+</html>

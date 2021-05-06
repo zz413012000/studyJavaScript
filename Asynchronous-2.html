@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 測試全域執行環境 函數執行環境 click 事件 的執行順序
+        function waitThreeSecond(){
+            var ms=3000+new Date().getTime();
+            while(new Date()<ms){} //當時間小於三秒就停在迴圈
+            console.log("finished function");
+        }
+        function clickHandler(){
+            console.log("click event!");
+        }
+        document.addEventListener("click",clickHandler);
+        waitThreeSecond();
+        console.log("finished excution");
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
