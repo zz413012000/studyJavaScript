@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <my-button id="btn"></my-button>
+    <hr/>
+    <button onclick="change();">Click</button>
+    <script>
+        class MyButton extends HTMLElement{
+            static style=`
+                .btn{
+                    display:inline-block;
+                    background-color:#aaa;color:#eee;
+                    padding:10px;
+                }
+            `;
+            static get observedAttributes(){
+                return ["text"];
+            }
+            // static get observedAttributes(){
+            //     return ["text"];
+            // }
+            constructor(){
+                super();
+                this.attachShadow({mode:"open"});
+                this.styleing();
+                this.render();
+            }
+            attributeChangedCallback(){
+                console.log(name,oldValue,newValue);
+                this.render();
+            }
+            styleing(){
+                this.stylesheet=document.createElement("style");
+                this.stylesheet.textContent=this.constructor.style;
+                this.shadowRoot.appendChild(this.stylesheet);
+            };
+            render(){
+                this.btn=document.createElement("div");
+                if(!this.getAttribute("text")){
+                    this.btn.textContent="Btn";
+                }else{
+                    this.btn.textContent=this.getAttribute("text");
+                }
+                this.btn.className="btn";
+                this.shadowRoot.appendChild(this.btn);
+            };
+        }
+        window.customElements.define("my-button",MyButton);
+        function change(){
+            const btn=document.querySelector("#btn");
+            btn.setAttribute("text","HaHa");
+        }
+    </script>
+</body>
+</html>
