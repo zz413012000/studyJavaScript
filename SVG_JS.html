@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,4 +48,55 @@ function createSvgElement(tagName,attrs){
     -->
     </svg>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+window.onload=function(){
+    var svg=document.getElementById("svg");
+    // 創造 SVG 標籤
+    var line=document.createElementNS("http://www.w3.org/2000/svg","line")
+    line.setAttribute("x1",50); // <line x1="50"></line>
+    line.setAttribute("y1",50); // <line x1="50" y1="50"></line>
+    line.setAttribute("x2",350);
+    line.setAttribute("y2",350);
+    line.setAttribute("stroke","red");
+    line.setAttribute("stroke-width",2);
+    svg.appendChild(line);
+
+    var rect=createSvgElement("rect",{
+        "x":150,
+        "y":100,
+        "width":100,
+        "height":100,
+        "fill":"blue"
+    });
+    svg.appendChild(rect);
+};
+function createSvgElement(tagName,attrs){
+    var element=document.createElementNS("http://www.w3.org/2000/svg",tagName);
+    for(var name in attrs){
+        element.setAttribute(name,attrs[name]);
+    }
+    return element;
+};
+    </script>
+</head>
+<body>
+    <svg id="svg" width="640" height="480" style="border:1px solid #000">
+    <!--
+        <line x1="50" y1="50" x2="350" y2="350" stroke="red" stroke-width="2"></line>
+        <circle cx="200" cy="50" r="50" fill="#fc0"></circle>
+        <rect x="150" y="100" width="100" height="100"fill="blue"></rect>
+        <polygon points="150,200,250,200,200,300" fill="black" stroke="red" stroke-width="3"></polygon>
+        <text x="100" y="350" fill="green" font-weight="bold" font-size="45">Hello SVG</text>
+    -->
+    </svg>
+</body>
+>>>>>>> f5cd1ee8c61ff06520c63b689a0b694422969fd2
 </html>

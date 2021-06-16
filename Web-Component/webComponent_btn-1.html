@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,4 +83,90 @@
         }
     </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 希望可以自訂組件 -->
+    <my-button id="target" text="Test" round="true"></my-button>
+    <my-button text="Click"></my-button>
+    <button onclick="change();">Change</button>
+    <script>
+        // build btn component
+        class MyButton extends HTMLElement{
+            static style=`
+                .btn{
+                        display:inline-block;
+                        color:#eee;background-color:#aaa;
+                        padding:10px;
+                    }
+            `;
+            static get observedAttributes(){ // 監控 text 這個屬性
+                return ["text",]
+            }
+            constructor(){
+                super();
+                this.attachShadow({mode:"open"});
+                // 套用組件內部的 CSS
+                this.styling();
+                // this.stylesheet=document.createElement("style");
+                // this.stylesheet.textContent=`
+                //     .btn{
+                //         display:inline-block;
+                //         color:#eee;background-color:#aaa;
+                //         padding:10px;
+                //     }
+                // `;
+                // this.shadowRoot.appendChild(this.stylesheet);
+                // render <my-button> HTML structure
+                this.render();
+            }
+            attributeChangedCallback(name,oldValue,newValue){
+                console.log(name,oldValue,newValue);
+                this.render();
+            }
+            styling(){
+                this.stylesheet=document.createElement("style");
+                // this.stylesheet.textContent=`
+                //     .btn{
+                //         display:inline-block;
+                //         color:#eee;background-color:#aaa;
+                //         padding:10px;
+                //     }
+                // `;
+                this.stylesheet.textContent=MyButton.style;
+                this.shadowRoot.appendChild(this.stylesheet);
+            }
+            render(){
+                if(this.btn){
+                    this.btn.remove();
+                }
+                this.btn=document.createElement("div");
+                // this.btn.style.display="inline-block";
+                // this.btn.style.backgroundColor="#aaa";
+                // this.btn.style.color="#eee";
+                // this.btn.style.padding="10px";
+                this.btn.className="btn";
+                this.btn.textContent=this.getAttribute("text");
+                if(this.getAttribute("round")==="true"){            
+                    this.btn.style.borderRadius="10px";
+                }
+                this.shadowRoot.appendChild(this.btn);
+            }
+        }
+        // 組件外部
+        window.customElements.define("my-button",MyButton);
+        function change(){
+            const target=document.querySelector("#target");
+            target.setAttribute("text","HaHa")
+        }
+    </script>
+</body>
+>>>>>>> f5cd1ee8c61ff06520c63b689a0b694422969fd2
 </html>

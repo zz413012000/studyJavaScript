@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <my-button id="btn" text="A"></my-button>
+    <hr/>
+    <button onclick="change();">Click</button>
+    <script>
+        class MyButton extends HTMLElement{
+            static style=`
+                .btn{
+                    display:inline-block;
+                    background-color:#aaa;color:#fff;
+                    padding:10px;
+                }
+            `;
+            static get observedAttributes(){
+                return ["text"];
+            }
+            constructor(){
+                super();
+                this.attachShadow({mode:"open"});
+                this.styling();
+                this.render();
+            }
+            attributeChangedCallback(name,oldValue,newValue){
+                console.log(name,oldValue,newValue);
+                this.render();
+            }
+            styling(){
+                this.stylesheet=document.createElement("style");
+                this.stylesheet.textContent=this.constructor.style;
+                this.shadowRoot.appendChild(this.stylesheet);
+            }
+            render(){
+                if(this.btn){
+                    this.btn.remove();
+                }
+                this.btn=document.createElement("div");
+                if(!this.getAttribute("text")){ // 如果是空的 就印 BTN
+                    this.btn.textContent="Btn";
+                }else{
+                    this.btn.textContent=this.getAttribute("text");
+                }
+                this.btn.className="btn";
+                this.shadowRoot.appendChild(this.btn);
+            }
+        }
+        window.customElements.define("my-button",MyButton);
+        function change(){
+            let btn=document.querySelector("#btn");
+            btn.setAttribute("text","HaHa");
+        }
+    </script>
+</body>
+</html>

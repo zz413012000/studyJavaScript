@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,4 +42,49 @@
         // 做可以更改自訂的組件的 BTN
     </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <my-button text="test"></my-button> -->
+    <my-button text="First"></my-button>
+    <script>
+        class MyButton extends HTMLElement{
+            static style=`
+                .btn{
+                    display:inline-block;
+                    background-color:#aaa;
+                    color:#eee;
+                    padding:10px;
+                }
+            `;
+            constructor(){
+                super();
+                this.attachShadow({mode:"open"});
+                this.styling();
+                this.render();
+            }
+            styling(){
+                this.stylesheet=document.createElement("style");
+                this.stylesheet.textContent=this.constructor.style;
+                this.shadowRoot.appendChild(this.stylesheet)
+            }
+            render(){
+                this.btn=document.createElement("div");
+                this.btn.className="btn";
+                this.btn.textContent=this.getAttribute("text");
+                this.shadowRoot.appendChild(this.btn);
+            }
+        }
+        window.customElements.define("my-button",MyButton);
+        // 做可以更改自訂的組件的 BTN
+    </script>
+</body>
+>>>>>>> f5cd1ee8c61ff06520c63b689a0b694422969fd2
 </html>

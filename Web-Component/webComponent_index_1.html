@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,4 +27,34 @@
         window.customElements.define("my-app",MyApp);
     </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <nav>
+        <div class="title">My Web</div>
+        <div class="Menu">Web Menu</div>
+    </nav>
+    <main>歡迎光臨</main> -->
+    <my-app></my-app>
+    <script type="module">
+        // 將畫面切割成多個組件
+        class MyApp extends HTMLElement{
+            constructor(){
+                super();
+            }
+            styling();
+            render();
+        }
+        // 組件外部
+        window.customElements.define("my-app",MyApp);
+    </script>
+</body>
+>>>>>>> f5cd1ee8c61ff06520c63b689a0b694422969fd2
 </html>
