@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 class MyMain extends HTMLElement{
     static style=`
         main{
@@ -30,7 +29,6 @@ class MyMain extends HTMLElement{
         this.shadowRoot.appendChild(main);
     }
 }
-=======
 class MyMain extends HTMLElement{
     static style=`
         main{
@@ -62,5 +60,4 @@ class MyMain extends HTMLElement{
         this.shadowRoot.appendChild(main);
     }
 }
->>>>>>> f5cd1ee8c61ff06520c63b689a0b694422969fd2
 export default MyMain;

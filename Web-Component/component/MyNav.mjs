@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 class MyNav extends HTMLElement{
     static style=`
         nav{
@@ -41,7 +40,6 @@ class MyNav extends HTMLElement{
     }
 }
 export default MyNav;
-=======
 class MyNav extends HTMLElement{
     static style=`
         nav{
@@ -84,4 +82,3 @@ class MyNav extends HTMLElement{
     }
 }
 export default MyNav;
->>>>>>> f5cd1ee8c61ff06520c63b689a0b694422969fd2
