@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// for in 遍歷 key 
+let arr=[
+    "a",
+    "b",
+    "c",
+    "d",
+    {"e":'e_value','f':"f_value"}
+];
+for(let index in arr){
+    console.log(index);
+}
+console.log("===============");
+// 用 for in 取 value 也是可以
+for(let index in arr){
+    console.log(arr[index]);
+}
+console.log("================")
+// for in 遍歷 object
+let obj={
+    a:"a_value",
+    b:"b_value",
+    c:"c_value"
+}
+for(let index in obj){
+    console.log(obj[index]);
+}
+</script>
+</body>
+</html>
