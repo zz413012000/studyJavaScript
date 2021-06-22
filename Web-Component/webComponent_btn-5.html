@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <my-Button></my-Button>
+    <script>
+        // 建立按鈕組件
+        class MyButton extends HTMLElement{
+            constructor(){
+                super();
+                this.attachShadow({mode:"open"});
+                this.btn=document.createElement("div");
+                this.btn.textContent="按鈕";
+                this.shadowRoot.appendChild(this.btn);
+            }
+        }
+        // 組件外部
+        window.customElements.define("my-button",MyButton);
+    </script>
+</body>
+</html>
