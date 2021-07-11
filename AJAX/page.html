@@ -1,4 +1,3 @@
-<<<<<<< HEAD
  <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -22,39 +21,9 @@ function getData(a){
 <body>
 <div>
     <span onclick="getData('popular.html');">熱門</span>
-    <span onclick="getLast();">最新</span>
+    <span onclick="getData('latest.html');">最新</span>
 </div>
 <hr/>
 <div id="content"></div>
 </body>
-=======
- <!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
-<script>
-function getData(a){
-    // XMLHttpRequest 物件專門用來和伺服器做連線
-    var req=new XMLHttpRequest();
-    req.open("get","http://127.0.0.1:5500/AJAX/"+a);
-    req.onload=function(){//load 事件，偵測連線的狀態結束
-        //連線完成
-        var content=document.getElementById("content");
-        content.innerHTML=this.responseText;
-    }
-    req.send();//送出連線
-}
-</script>
-</head>
-<body>
-<div>
-    <span onclick="getData('popular.html');">熱門</span>
-    <span onclick="getLast();">最新</span>
-</div>
-<hr/>
-<div id="content"></div>
-</body>
->>>>>>> f5cd1ee8c61ff06520c63b689a0b694422969fd2
 </html>
