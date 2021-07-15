@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #btn{
+            margin:15px;
+        }
+    </style>
+</head>
+<body>
+<h1>AJAX</h1>
+<button onclick="getData();" id="btn">getData</button>
+<div id="content"></div>
+<script>
+let content=document.getElementById("content");
+content.innerHTML="...loading..."
+function getData(){
+    let src="https://zz413012000.github.io/test/products.json";
+    fetch(src).then(function(response){
+        // console.log(response);
+        // return response.text();
+        return response.json();
+    }).then(function(result){
+        // console.log(result);
+        let product;
+        content.innerHTML="";
+        for(let i=0;i<result.length;i++){
+            // product=result[i];
+            content.innerHTML+=result[i].name.bold()+" - "+result[i].price+"<hr/>";
+        }
+    });
+}
+</script>
+</body>
+</html>
