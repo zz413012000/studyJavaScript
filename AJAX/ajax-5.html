@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            margin: 10px;
+        }
+        button{
+            margin: 10px;
+        }
+
+        .item{
+            width: 500px;
+            height: 50px;
+            margin: 10px;
+            padding: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .item:hover{
+            background-color: #ddd;
+        }
+        .name{
+            width: 200px;
+        }
+        .price{
+            width: 10%;
+            /* height: 100%; */
+            position: relative;
+        }
+        .item .price:hover::after{
+            opacity: .2;
+        }
+        .item>.price::after{
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: #000;
+            opacity: .0;
+        } 
+        .calculate{
+            border-top: 1px solid #000;     
+            width: 500px;       
+            /* text-align: right; */
+        }
+        .total{
+            padding: 10px 0;
+        }
+        .avg{
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+<h1>AJAX</h1>
+<!-- <button onclick="getData();">getData</button> -->
+<hr/>
+<div id="content" class="content">
+    <b>
+        ...loading...
+    </b>
+</div>
+<!-- <div class="row">
+    <div class="item">
+        <div class="name">name</div>
+        <div class="price">0</div>
+    </div>
+    <div class="item">
+        <div class="name">name</div>
+        <div class="price">0</div>
+    </div>
+    <div class="item">
+        <div class="name">name</div>
+        <div class="price">0</div>
+    </div>
+    <div class="calculate">
+        <div class="total">total</div>
+        <div class="avg">avg</div>
+    </div>
+</div> -->
+<script>
+window.addEventListener("load",getData());
+function getData(){
+    let content=document.getElementById("content");
+    let sum=0;
+    let avg=0;
+    content.innerHTML="";
+    let src="https://zz413012000.github.io/test/products.json";
+    fetch(src).then(function(response){
+        return response.json();
+        // console.log(response);
+    })
+    .then(function(result){
+        // console.log(result);
+        for(let i=0;i<result.length;i++){
+        content.innerHTML+=
+        "<div class='item'>"+
+            "<div class='name'>"+result[i].name+"</div>"+
+            "<div class='price'>"+" - "+result[i].price+"</div>"+
+        "</div>";
+        sum+=result[i].price;
+        }
+        avg=sum/result.length;
+        content.innerHTML+=
+        "<div class='calculate'>"+
+            "<div class='total'>"+"總和: "+sum+"</div>"+
+            "<div class='sum'>"+"平均價格: "+avg+"</div>"+
+        "</div>";
+        
+    })
+}
+</script>
+</body>
+</html>
