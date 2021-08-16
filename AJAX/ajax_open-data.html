@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+<body>
+    <button onclick="getData();">取得資料</button>
+    <hr/>
+    <div id="root">...loading...</div>
+    <script>
+        function getData(){
+            let root =document.getElementById("root");
+            root.innerHTML="";
+            src="https://data.taipei/api/v1/dataset/296acfa2-5d93-4706-ad58-e83cc951863c?scope=resourceAquire";
+            fetch(src).then(function(response){
+                return response.json();
+            }).then(function(result){
+                result=result.result.results
+                for(let i=0;i<result.length;i++){
+                    root.innerHTML+="第 "+result[i]._id+" 間公司 "+result[i].公司名稱+"<br/>";
+                }
+            });
+        }
+    </script>
+</body>
+</html>

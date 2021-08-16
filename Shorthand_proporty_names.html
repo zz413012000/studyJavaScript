@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const deviceName="Galaxy Note";
+        // const currentPrice=30900;
+        // const storage="256G";
+        // const galaxyNote={
+        //     deviceName:deviceName,
+        //     currentPrice:currentPrice,
+        //     storage:storage
+        // };
+        // console.log(galaxyNote.deviceName);
+        
+        /* 物件屬性名稱縮寫 */
+        const device=["Galaxy Note","iPhone"];
+        const price=[10000,20000];
+        const storages=["128G","256G"];
+        for(let i=0;i<device.length;i++){        
+            const deviceName=device[i];
+            const currentPrice=price[i];
+            const storage=storages[i];
+            const Phone={
+                deviceName,
+                currentPrice,
+                storage
+            };
+            console.log("第"+i+"支手機 ",Phone.deviceName);
+            console.log("第"+i+"支手機 ",Phone.currentPrice);
+            console.log("第"+i+"支手機 ",Phone.storage);
+        }
+    </script>
+</body>
+</html>
