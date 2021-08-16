@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // function add(){
+        //     let start=0;
+        //     return (num)=>{
+        //         if(num){
+        //             start+=num;
+        //         }
+        //         return start;
+        //     }
+        // }
+        // let addNumber=add();
+        // console.log(addNumber());
+        // console.log(addNumber());
+        // function createWallet(init){
+        //     let money =init;
+        //     return {
+        //         add(num){
+        //             money+=num;
+        //         },
+        //         deduct(num){
+        //             money-=num;
+        //         },
+        //         getMoney(){
+        //             return money;
+        //         }
+        //     }
+        // }
+        // let wallet =createWallet(100);
+        // console.log(wallet);
+        // wallet.add(1);
+        // wallet.deduct(30);
+        // console.log(wallet.getMoney());
+        function createScore(init){
+            let score=init;
+            return {
+                add(num){
+                    score+=num;
+                },
+                deduc(num){
+                    score-=num;
+                },
+                getScore:function(){
+                    return score;
+                }
+            }
+        }
+let Player1=createScore(100);
+console.log(Player1);
+Player1.add(10);
+Player1.deduc(100);
+console.log(Player1.getScore());
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
