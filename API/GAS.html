@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="postData()">fetchPost</button>
+    <button id="post">Post</button>
+    <button id="get">Get</button>
+    <ul id="users"></ul>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js' integrity='sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==' crossorigin='anonymous'></script>
+    <script>
+        function postData(){
+            let src="https://script.google.com/macros/s/AKfycbzGDB-5MHDu6vNo8wPeDD8Vb8OimXcRjS09KuJqcRSsLHZUukej-W9P0_sV2nl8VQlG/exec";
+            let data={
+                "name":"Jack",
+                // "age":"18"
+            }
+            fetch(src, {
+                    method:'POST',
+                    body:data,
+                    headers:{
+                        'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
+                    }
+                })
+                .then(res => {
+                    return res.json();   // 使用 json() 可以得到 json 物件
+                })
+                .then(result => {
+                    console.log(result); // 得到 {name: "oxxo", age: 18, text: "你的名字是 oxxo，年紀 18 歲～"}
+                })
+                .catch((err) => {
+                    console.log('錯誤:', err);
+                });
+            }
+    </script>
+    <script>
+        $(function(){
+            let src="https://script.google.com/macros/s/AKfycbzGDB-5MHDu6vNo8wPeDD8Vb8OimXcRjS09KuJqcRSsLHZUukej-W9P0_sV2nl8VQlG/exec";
+            let data={
+                    "method":"read",
+                    "name":"Jack",
+                    "age":"18"
+                }
+            $("#get").on("click",function(){
+                $.ajax({
+                    url:src,
+                    method:"get",
+                    dataType:"json",
+                    data:{}
+                })
+                .done(function(res){
+                    console.log(res);
+                    $("#users").empty();
+                    res.forEach(user=>{
+                        $("#users").append(`<li>${user.name}.${user.age}</li>`);
+                    })
+                })
+                .fail(function(err){
+                    console.log(err)
+                })
+            })
+
+            // post 給資料內容
+            // a 被點之後啟動 ajax 
+            $("#post").on("click",function(){
+         
+ 
+                console.log(data);
+
+            $.ajax({
+                url:src,
+                method:"post",
+                dataType:"json",
+                data:data
+            })
+            })
+        })
+    </script>
+</body>
+</html>
