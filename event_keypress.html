@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function init(){
+            var btn=document.getElementById("btn");
+            btn.addEventListener('keypress',function(e){
+                console.log('按下 keypress');
+                console.log('keypress: ',e.key);
+            });
+            btn.addEventListener('keydown',function(e){
+                console.log('按下 keydown');
+                console.log("keydown: ",e.key);
+            })
+            btn.addEventListener('keyup',function(e){
+                console.log("觸發 keyup");
+                console.log("keyup: ",e.key);
+            })
+        }
+
+    </script>
+</head>
+<body onload="init()">
+    <input type="text" id="btn">
+</body>
+</html>
