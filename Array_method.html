@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // push
+        // var a = [1, 2, 3];
+        // var length = a.push(4, 5);
+        // console.log(a);    // [1,2,3,4,5]
+        // console.log("length", length);
+
+        // pop()
+        // var a=[1,2,3,4,5,6]
+        // console.log(a.pop());
+        // console.log(a);
+        // var names = ['Andrew', 'Bob', 'John', 'Abby'];
+        // console.log(names) // ['Andrew','Bob','John','Abby']
+        // while ( (i=names.pop()) !== undefined) {
+        //     console.log(i);
+        // }
+        // console.log(names); // []
+
+        //shift()
+        // var a=[1,2,3]
+        // console.log(a.shift());
+        // console.log(a);
+        // var names = ["Andrew", "Edward", "Paul", "Chris", "John"];
+        // console.log(names)
+        // while ((i = names.shift()) !== undefined) {
+        //     console.log(i);
+        // }
+        // console.log(names);
+        // var names = ["Andrew", "Edward", "Paul", "Chris", "John"]
+        // console.log(names) // ["Andrew", "Edward", "Paul", "Chris", "John"]
+        // while ((i = names.shift()) !== undefined) {
+        //     console.log(i);
+        // }
+        // console.log(names);
+
+        // unshift
+        // var a=[1,2,3];
+        // console.log(a.unshift(4,5));
+        // console.log(a);
+
+        // reverse
+        // var a=['one','two','three'];
+        // var reversed=a.reverse();
+        // console.log(a);
+        // console.log(reversed);
+        // reversed.push('four');
+        // console.log(a);
+        // console.log(reversed);
+
+        // splice
+        // var a=[1,2,3,4,5,6,7,8]
+        // a.splice(5,1,100);
+        // console.log(a);
+        // var b=[1,2,3,4,5,6,7,8];
+        // b.splice(5,3,100,300,500);
+        // console.log(b);
+        // var c=[1,2,3,4,5,6,7,8];
+        // c.splice(5,0,100);
+        // console.log(c);
+
+        // sort
+        // var a=[3,5,7,9,1,2]
+        // console.log(a.sort());
+        // console.log(a);
+        // var b=[1,3,6,4,5,2,9,11,13,7];
+        // // console.log(b.sort());
+        // b.sort(function(a,b){
+        //     console.log(a,b);
+        //     if(a>b) return 1;
+        //     if(a<b) return -1;
+        //     return 0;
+        // })
+        // console.log(b);
+        // b.sort(function(x,y){
+        //     return y-x
+        // });
+        // console.log("y-x",b);
+        // b.sort(function(x,y){
+        //     return x-y
+        // })
+        // console.log("x-y",b);
+
+        // fill
+        // var a=[1,2,3,4,5,6,7,8]
+        // a.fill(null);
+        // console.log(a);
+
+        // var b=[1,2,3,4,5,6,7,8];
+        // console.log(b.fill('b',2,6))
+
+        // forEach
+        // var a=[1,2,3,4,5];
+        // var b=0;
+        // a.forEach(function(item){
+        //     console.log(item)
+        //     b=b+item;
+        // })
+        // console.log(b); // 15 (1+2+3+4+5)
+        // console.log(a)
+        // var a=[1,2,3,4,5];
+        // a.forEach(function(currentValue,index,array){
+        //     array[index]=currentValue*10;
+        // })
+        // console.log(a);
+
+        // var items=['a','b','c'];
+        // var copy=[]
+        // var i=0;
+        // while(i<items.length){
+        //     copy.push(items[i]);
+        //     i++;
+        // }
+        // console.log("copy",copy);
+
+        // var items=['a','b','c'];
+        // var copy=[];
+        // items.forEach(function(currentValue,index,array){
+        //     copy.push(currentValue);
+        // })
+        // console.log("copy",copy);
+
+        // map
+        //     var a=[1,2,3,4,5,6,7,8];
+        //     var b=a.map(function(e){
+        //         return e+10;
+        //     })
+        //     console.log(a);
+        //     console.log(b);
+        //     a.push(9);
+        //     console.log(a);
+        //     console.log(b);
+
+        // reduce
+        // var a=[1,2,3,4,5,6,7,8]
+        // var b=a.reduce(function(sum,e,index){
+        //     console.log("sum",sum)
+        //     console.log("index",index)
+        //     console.log("e",e)
+        //     return sum+e;
+        // },10)
+        // console.log(a)
+        // console.log(b)
+
+        // some
+        // var a=[1,2,3,4,5,6,7,8];
+        // console.log(a.some(function(currentValue){
+        //     return currentValue>9
+        // }))
+
+        // some
+        // function isBigEnough(currentValue) {
+        //     return currentValue >= 10
+        // }
+        // var a = [1, 2, 3, 4, 5, 6, 7, 8].every(isBigEnough);
+        // var b = [9, 10, 11, 12].every(isBigEnough);
+        // var c = [11, 12, 13, 14, 15].every(isBigEnough);
+        // console.log(a);
+        // console.log(b);
+        // console.log(c);
+    </script>
+</body>
+
+</html>

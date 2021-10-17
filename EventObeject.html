@@ -7,8 +7,10 @@
 <script>
 function init(){
     var btn=document.getElementById("btn");
+    var monitor=document.getElementById("monitor");
     var handler=function(e){
-        alert(e.clientX+","+e.clientY);
+      console.log(e);
+      alert(e.clientX+","+e.clientY);
     }
     btn.addEventListener("click",handler);
     /*
@@ -18,13 +20,19 @@ function init(){
         3.呼叫已經註冊的事件處理器(事件處理函式)
           handler(eventObj);
     */
-    document.addEventListener("keydown",function(e){//匿名函式用來當事件處理器
-      alert(e.keyCode);
-    });
+    window.addEventListener('mousemove',function(e){
+      let data=e.clientX+" , "+e.clientY;
+      console.log(data);
+      monitor.innerHTML=data;
+    })
+    // document.addEventListener("keydown",function(e){//匿名函式用來當事件處理器
+    //   alert(e.keyCode);
+    // });
 }
 </script>
 </head>
 <body onload="init();">
-<button id="btn">Click</button>    
+<button id="btn">Click</button>
+<p id='monitor'></p>
 </body>
 </html>

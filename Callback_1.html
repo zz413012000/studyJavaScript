@@ -19,17 +19,50 @@
 //     console.log("3");
 // }
 // test();
-function delayAdd(n1,n2,delayTime,callback){
-    setTimeout(function(){
-        callback(n1+n2);
-    },delayTime);
+// function delayAdd(n1,n2,delayTime,callback){
+//     setTimeout(function(){
+//         callback(n1+n2);
+//     },delayTime);
+// }
+// function print(result){
+//     console.log(result);
+// }
+// delayAdd(3,4,2000,print);
+// A、B 隨機一個秒數後啟動 A 比 B先啟動
+// function funcA(cb){
+//     let timer=(Math.random()+1)*1000;
+//     console.log("funcA Timer",timer);
+//     window.setTimeout(function(){
+//         console.log("funcA");
+//         cb();
+//     },timer);
+// }
+// function funcB(){
+//     let timer=(Math.random()+1)*1000;
+//     console.log("funcB Timer",timer);
+//     window.setTimeout(function(){
+//         console.log("funcB")
+//     }
+//     ,timer)
+// }
+// funcA(funcB);
+function funcA(cb){
+	let timer=(Math.random()+1)*1000;
+    console.log("funA timer:",timer);
+	setTimeout(function(){
+		console.log('funcA');
+        cb(timer);
+	},timer);
 }
-function test(){
-    delayAdd(3,4,2000,function(result){
-        console.log(result);
-    })
+function funcB(waitTimer){
+	let timer=(Math.random()+1)*1000;
+    console.log("funB timer:",timer);
+	setTimeout(function(){
+		console.log('funcB DelayTime',(timer+waitTimer))
+	},timer)
 }
-test();
+funcA(funcB);
+
 </script>
 </head>
 <body>
