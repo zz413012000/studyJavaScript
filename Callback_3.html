@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 切菜 切番茄 擺盤，做完這三件事情之後，上菜
+        // 準備一個陣列作檢查，每次完成任務後就檢查一次
+        function funcA(check){
+            let timer=(Math.random()+1)*1000
+            setTimeout(function(){
+                console.log("A"+timer)
+                check("A")
+            },timer)
+        }
+        function funcB(check){
+            let timer=(Math.random()+1)*1000
+            setTimeout(function(){
+                console.log("B"+timer)
+                check("B")
+            },timer)
+        }
+        function funcC(check){
+            let timer=(Math.random()+1)*1000
+            setTimeout(function(){
+                console.log("C"+timer)
+                check("C")
+            },timer)
+        }
+        function funcD(){
+            console.log("D")
+        }
+        function serials(tasks,callback){
+            // 這個涵式做兩件事，這兩件事情都需要再排程內進行，所以要使用 callback 或 Promis 處理
+            // 1.紀錄已經完成的任務
+            // 2.檢查任務全部完成時，就執行最後一個任務
+            let steps=tasks.length
+            let result=[]
+            function checkCallback(r){
+                result.push(r)
+                if(result.length===steps){
+                    callback()
+                }
+            }
+            for(let i=0;i<steps;i++){
+                tasks[i](checkCallback)
+            }
+
+        }
+        serials([funcA,funcB,funcC],funcD)
+    </script>
+</body>
+</html>

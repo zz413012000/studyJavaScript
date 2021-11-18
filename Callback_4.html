@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function funcA(check){
+            let timer=(Math.random()+1)*1000
+            setTimeout(function(){
+                console.log("切番茄:",timer)
+                check(timer)
+            },timer)
+        }
+        function funcB(check){
+            let timer=(Math.random()+1)*1000
+            setTimeout(function(){
+                console.log("切蘿蔔:",timer)
+                check(timer)
+            },timer)
+        }
+        function funcC(check){
+            let timer=(Math.random()+1)*1000
+            setTimeout(function(){
+                console.log("擺盤:",timer)
+                check(timer)
+            },timer)
+        }
+        function funcD(totalTimer){
+            console.log("上菜:",totalTimer)
+        }
+        function serials(tasks,callback){
+            // 1.紀錄已經完成的任務
+            // 2.檢查任務是否全部完成
+            let steps=tasks.length
+            let result=[]
+            let resultTimer=0
+            let totalTimer=0
+            function checkCallback(timer){
+                resultTimer++
+                result.push(resultTimer)
+                totalTimer+=timer
+                if(result.length===steps){
+                    callback(totalTimer)
+                }
+            }
+            for(let i=0;i<steps;i++){
+                tasks[i](checkCallback)
+            }
+        }
+        serials([funcA,funcB,funcC],funcD)
+
+    </script>
+</body>
+</html>
