@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function delayAdd(addArray, callback, delayTime=1000) {
+            console.log("dalayAdd Function")
+            setTimeout(function () {
+                result=0
+                addArray.forEach(element => {
+                    result+=element
+                });
+                callback(result,delayTime)
+            }, delayTime)
+        }
+        delayAdd([3,4,7,9], function (result,timer) {
+            if(timer!==undefined){console.log("等待 "+timer/1000+" 秒")}
+            console.log("result:", result)
+        },2000)
+    </script>
+</body>
+
+</html>

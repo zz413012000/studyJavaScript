@@ -1,135 +1,138 @@
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
-<script>
-// 切菜 切番茄 擺盤 做完 每件事情隨機做一秒多
-//三件事情才做上菜
-// var result=[];
-// var step=3;
-// function funcA(){
-//     var timer=(Math.random()+1)*1000
-//     setTimeout(function(){
-//         console.log("A:"+timer+"秒");
-//         result.push("A");
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 切菜 切番茄 擺盤 做完 每件事情隨機做一秒多
+    //三件事情才做上菜
+    // var result=[];
+    // var step=3;
+    // function funcA(){
+    //     var timer=(Math.random()+1)*1000
+    //     setTimeout(function(){
+    //         console.log("A:"+timer+"秒");
+    //         result.push("A");
 
-//         if( result.length === step){
-//             funcD();
-//         }
-//     },timer);
-// }
-// function funcB(){
-//     var timer=(Math.random()+1)*1000
-//     setTimeout(function(){
-//         console.log("B:"+timer+"秒");
-//         result.push("B");
+    //         if( result.length === step){
+    //             funcD();
+    //         }
+    //     },timer);
+    // }
+    // function funcB(){
+    //     var timer=(Math.random()+1)*1000
+    //     setTimeout(function(){
+    //         console.log("B:"+timer+"秒");
+    //         result.push("B");
 
-//         if( result.length === step){
-//             funcD();
-//         }
-//     },timer)
-// }
-// function funcC(){
-//     var timer=(Math.random()+1)*1000
-//     setTimeout(function(){
-//         console.log("C:"+timer+"秒");
-//         result.push("C");
+    //         if( result.length === step){
+    //             funcD();
+    //         }
+    //     },timer)
+    // }
+    // function funcC(){
+    //     var timer=(Math.random()+1)*1000
+    //     setTimeout(function(){
+    //         console.log("C:"+timer+"秒");
+    //         result.push("C");
 
-//         if( result.length === step){
-//             funcD();
-//         }
-//     },timer)
-// }
-// function funcD(){
-//     console.log("上菜");
-// }
-// funcA();
-// funcB();
-// funcC();
+    //         if( result.length === step){
+    //             funcD();
+    //         }
+    //     },timer)
+    // }
+    // function funcD(){
+    //     console.log("上菜");
+    // }
+    // funcA();
+    // funcB();
+    // funcC();
 
-// 切菜 切番茄 擺盤 做完 每件事情隨機做一秒多
-// 三件事情才做上菜
-function serials(tasks, callback) {
-  var step = tasks.length;
-  var result = [];
+    // 切菜 切番茄 擺盤 做完 每件事情隨機做一秒多
+    // 三件事情才做上菜
+    function serials(tasks, callback) {
+      var step = tasks.length;
+      var result = [];
 
-  // 檢查的邏輯寫在這裡
+      // 檢查的邏輯寫在這裡
 
-  function checkCallback(r) {
-    result.push(r); //每檢查一次就推一個陣列成員到 result 
-    if( result.length === step ){
-      callback();
+      function checkCallback(r) {
+        result.push(r); //每檢查一次就推一個陣列成員到 result 
+        if (result.length === step) {
+          callback();
+        }
+      }
+
+      // tasks.forEach(function(func) {
+      //   func(checkCallback);/*每有一個陣列成員，就呼叫一次*/
+      // });
+      for (let i = 0; i < tasks.length; i++) {
+        let func = tasks[i];
+        func(checkCallback);
+      }
+      /*
+       * for 迴圈 可以改用 forEach 寫
+        // tasks.forEach(function(func) {
+        //   func(checkCallback); 每有一個陣列成員，就呼叫一次
+        // });
+       */
+
+
     }
-  }
-
-  // tasks.forEach(function(func) {
-  //   func(checkCallback);/*每有一個陣列成員，就呼叫一次*/
-  // });
-  for(let i=0;i<tasks.length;i++){
-    let func=tasks[i];
-    func(checkCallback);
-  }
-/*
- * for 迴圈 可以改用 forEach 寫
-  // tasks.forEach(function(func) {
-  //   func(checkCallback); 每有一個陣列成員，就呼叫一次
-  // });
- */
-
-
-}
-function funcA(check){
-    var timer=(Math.random()+1)*1000;
-    setTimeout(function(){
-        console.log("A:"+timer);
+    function funcA(check) {
+      var timer = (Math.random() + 1) * 1000;
+      setTimeout(function () {
+        console.log("A:" + timer);
         check("A");
-    },timer);
-}
-function funcB(check){
-    var timer=(Math.random()+1)*1000;
-    setTimeout(function(){
-        console.log("B:"+timer);
+      }, timer);
+    }
+    function funcB(check) {
+      var timer = (Math.random() + 1) * 1000;
+      setTimeout(function () {
+        console.log("B:" + timer);
         check("B");
-    },timer)
-}
-function funcC(check){
-    var timer=(Math.random()+1)*1000;
-    setTimeout(function(){
-        console.log("C:"+timer);
+      }, timer)
+    }
+    function funcC(check) {
+      var timer = (Math.random() + 1) * 1000;
+      setTimeout(function () {
+        console.log("C:" + timer);
         check("C");
-    },timer)
-}
-function funcD(){
-    console.log("上菜!");
-}
-serials([funcA,funcB,funcC],funcD);
+      }, timer)
+    }
+    function funcD() {
+      console.log("上菜!");
+    }
+    serials([funcA, funcB, funcC], funcD);
 /*
- * 1.呼叫serials()
- * 2.傳入兩個參數 陣列[funcA,funcB,funcC] 以及funcD
- * 3.第一個參數 陣列[funcA,funcB,funcC] 會傳到 
- * tasks.forEach(function(f) {
-    f(check);
-  });
-  每有一個陣列成員，就呼叫一次 tasks.forEach 裡面的函式
- * 4.首先 funcA 傳進
-   function(func) {
-    func(checkCallback);
-  }
- * 5.呼叫 func(checkCallback)
- * 6. checkCallback作為參數傳進 funcA() 函式裡面
- * 7. funcA(check) 函式裡面的 check("A");這行呼叫 checkCallback()函式
- * 8. 將字串 "A" 傳進 checkCallback(r) 函式裡面的 result.push(r);
- * 9. 剛剛將字串 "A" 推上去陣列 resule ，判斷需不需要執行 callback 也就是 funcD()
-   if( result.length === step ){
-      callback();
-    } 
- * 10. 持續執行 4~9 的步驟，直到陣列 [funcA,funcB,funcC] 作為參數傳完
- */
-</script>
+     * 1.呼叫serials()
+     * 2.傳入兩個參數 陣列[funcA,funcB,funcC] 以及funcD
+     * 3.第一個參數 陣列[funcA,funcB,funcC] 會傳到
+     * tasks.forEach(function(f) {
+        f(check);
+      });
+      每有一個陣列成員，就呼叫一次 tasks.forEach 裡面的函式
+     * 4.首先 funcA 傳進
+       function(func) {
+        func(checkCallback);
+      }
+     * 5.呼叫 func(checkCallback)
+     * 6. checkCallback作為參數傳進 funcA() 函式裡面
+     * 7. funcA(check) 函式裡面的 check("A");這行呼叫 checkCallback()函式
+     * 8. 將字串 "A" 傳進 checkCallback(r) 函式裡面的 result.push(r);
+     * 9. 剛剛將字串 "A" 推上去陣列 resule ，判斷需不需要執行 callback 也就是 funcD()
+       if( result.length === step ){
+          callback();
+        }
+     * 10. 持續執行 4~9 的步驟，直到陣列 [funcA,funcB,funcC] 作為參數傳完
+     */
+  </script>
 </head>
+
 <body>
-    
+
 </body>
+
 </html>
