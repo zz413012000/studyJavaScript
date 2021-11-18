@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function delayAdd(addArray,timer){
+            return new Promise(function(resolve,reject){
+                setTimeout(function(){
+                    let result=addArray.reduce(function(sum,e){
+                        return sum+e
+                    })
+                    resolve(result)
+                },timer)
+            })
+        }
+        function test(){
+            let timer=2000
+            let promise=delayAdd([3,4],timer)
+            promise.then(function(result){
+                console.log(`等待了${timer}秒，結果是${result}。`)
+            })
+        }
+        test()
+    </script>
+</body>
+</html>
