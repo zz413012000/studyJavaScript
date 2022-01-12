@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let rockman={buster:true}
+        // let cutman={cutter:true}
+        // console.log('buster' in rockman)
+        // console.log('cutter' in rockman)
+        // Object.setPrototypeOf(rockman,cutman)
+        // console.log('cutter' in rockman)
+        // let rockman={buster:true}
+        // let cutman={cutter:true}
+        // console.log('buster' in rockman)
+        // console.log('cutter' in rockman)
+        // Object.setPrototypeOf(rockman,cutman)
+        // console.log('cutter' in rockman)
+        // 使用 prototype
+        function Person(name){
+            this.name=name
+            this.sayHello=function(){
+                return `I'm ${name}`
+            }
+        }
+        Person.prototype.sayHello=function(){
+            return "Hi"
+        }
+        let p=new Person('Jack')
+        let msg=p.sayHello()
+        console.log(p)
+        console.log(msg)
+        class Gamer{
+            constructor(name){
+                this.name=name
+                this.sayHello=function(){
+                    console.log(this.name)
+                }
+            }
+        }
+        let p1=new Gamer('John')
+        p1.sayHello()
+        console.log(p1)
+    </script>
+</body>
+</html>
