@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.獨立的函式
+        function test(){
+            console.log(this) //window 物件
+            console.log(this.innerWidth)
+        }
+        // 2.物件的方法
+        // let obj={
+        //     x:3,
+        //     test:function(){
+        //         console.log(this)
+        //         console.log(this.x)
+        //     }
+        // }
+        // obj.test()
+        // 3.事件處理函式
+        document.addEventListener('click',function(){
+            console.log(this)
+        });
+        // 4.建構函式
+        function Point(){
+            console.log(this)
+            this.x=3
+            this.y=4
+        }
+        let p1=new Point()
+        console.log(p1.x)
+        console.log(p1.y)
+    </script>
+</body>
+</html>
